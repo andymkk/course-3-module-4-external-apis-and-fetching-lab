@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 20px;
   background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
@@ -11,23 +11,30 @@ body {
 h1 {
   text-align: center;
   margin: 20px 0;
+  color: #333;
 }
 
-/* Input Field and Button */
-#city-input {
+/* Input and Button Container */
+#state-input,
+#fetch-alerts {
   display: block;
-  margin: 20px auto;
+  margin: 10px auto;
+}
+
+/* Input Field */
+#state-input {
   padding: 10px;
   width: 80%;
-  max-width: 400px;
+  max-width: 300px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-#fetch-weather {
-  display: block;
-  margin: 10px auto;
+/* Button */
+#fetch-alerts {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #007bff;
@@ -35,30 +42,70 @@ h1 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-#fetch-weather:hover {
+#fetch-alerts:hover {
   background-color: #0056b3;
 }
 
-/* Weather Display Section */
-#weather-display {
-  margin: 20px auto;
-  padding: 10px;
+#fetch-alerts:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Alerts Display Section */
+#alerts-display {
+  margin: 30px auto;
+  padding: 20px;
   width: 90%;
-  max-width: 600px;
+  max-width: 800px;
   background: #fff;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Alert Summary */
+.alert-summary h2 {
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Alerts List */
+.alerts-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alert-item {
+  padding: 12px 15px;
+  margin: 8px 0;
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.alert-item:hover {
+  background-color: #e9ecef;
 }
 
 /* Error Message */
 #error-message {
-  color: red;
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 15px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
   font-weight: bold;
   text-align: center;
-  margin-top: 10px;
 }
 
 /* Hidden Class for Error Handling */
@@ -66,14 +113,22 @@ h1 {
   display: none;
 }
 
-/* BONUS: Loading Spinner */
-#loading-spinner {
-  display: none;
-  margin: 20px auto;
-  text-align: center;
-}
-
-#loading-spinner img {
-  width: 50px;
-  height: 50px;
+/* Responsive Design */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  
+  #state-input {
+    width: 90%;
+  }
+  
+  #alerts-display {
+    padding: 15px;
+    width: 95%;
+  }
+  
+  .alert-item {
+    padding: 10px;
+  }
 }
